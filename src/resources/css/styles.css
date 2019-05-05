@@ -16,3 +16,23 @@ a {
 .img_cover {
     background-size: cover !important;
 }
+
+/*=============================
+            HEADER FOOTER
+===============================*/
+
+footer {
+    background: #353535;
+    text-align: center;
+    font-size: 16px;
+    color: #ffffff;
+    padding: 30px 0px;
+}
+
+footer .img_cover{
+   margin: 0 auto;
+}
+
+footer .footer_disc {
+    margin: 10px 0px;
+}
