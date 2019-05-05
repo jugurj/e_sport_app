@@ -17,6 +17,10 @@ a {
     background-size: cover !important;
 }
 
+.bg_gray {
+    background: #464646;
+}
+
 /*=============================
             HEADER FOOTER
 ===============================*/
@@ -35,4 +39,26 @@ footer .img_cover{
 
 footer .footer_disc {
     margin: 10px 0px;
+}
+
+/*=============================
+            THUMBNAIL
+===============================*/
+
+.thumbnail_wrapper {
+    margin: 0 auto;
+    width: 1280px;
+    margin-top: 90px;
+    height: 800px;
+    overflow: hidden;
+}
+
+.thumbnail_stripes {
+    position: relative;
+}
+
+.thumbnail_stripes .stripe {
+    width: 230px;
+    height: 1200px;
+    position: absolute;
 }
