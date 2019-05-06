@@ -47,7 +47,7 @@ footer .footer_disc {
 
 .thumbnail_wrapper {
     margin: 0 auto;
-    width: 1280px;
+    width: 100%;
     margin-top: 90px;
     height: 800px;
     overflow: hidden;
@@ -68,21 +68,22 @@ footer .footer_disc {
 }
 
 .thumbnail_title_number {
-    font-size: 220px;
+    font-size: 260px;
     color: #353535;
     transform: translate(250px,170px);
     position: absolute;
-    font-family: 'Days One', sans-serif;
-    /* font-family: 'Allerta Stencil', sans-serif; */
+    font-family: 'Black Ops One', cursive;
 }
 
 .thumbnail_first_title {
     position: absolute;
     background: #464646;
     color: #ffffff;
-    font-size: 92px;
+    font-size: 110px;
+    line-height: 75px;
     text-transform: uppercase;
-    padding: 0px 30px;
+    padding: 17px 5px 5px 30px;
+    font-family: 'Fugaz One', cursive;
 }
 
 .thumbnail_first_title::after {
@@ -90,16 +91,27 @@ footer .footer_disc {
     content: '';
     width: 0;
     height: 0;
-    border-top: 110px solid #464646;
-    border-right: 50px solid transparent;
-    margin-left: 30px;
+    border-top: 97px solid #464646;
+    border-right: 45px solid transparent;
+    margin-left: 4px;
+    margin-top: -17px;
 }
 
 .thumbnail_second_title {
     position: absolute;
     background: #464646;
     color: #ffffff;
-    font-size: 92px;
+    font-size: 110px;
+    line-height: 75px;
     text-transform: uppercase;
-    padding: 0px 30px;
+    padding: 17px 30px 5px 30px;
+    font-family: 'Fugaz One', cursive;
+}
+
+.thumbnail_image {
+    width: 500px;
+    height: 500px;
+    background-size: contain !important;
+    background-repeat: no-repeat !important;
+    position: absolute;
 }

@@ -14,7 +14,7 @@ const Header = () => {
                 background: '#353535',
                 boxShadow: 'none',
                 padding: '10px 0px',
-                borderBottom: '2px solid #ff9000'
+                borderBottom: '2px solid #F57B20'
             }}
         >
             <Toolbar style={{ display: 'flex' }}>
@@ -24,7 +24,7 @@ const Header = () => {
                             link="true"
                             linkTo="/"
                             width="70px"
-                            height="70px"
+                            height="73px"
                         />
                     </div>
                 </div>

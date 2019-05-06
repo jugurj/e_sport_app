@@ -9,7 +9,7 @@ const Footer = () => {
                     link="true"
                     linkTo="/"
                     width="70px"
-                    height="70px"
+                    height="73px"
                 />
             </div>
             <div className="footer_disc">

@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { easePolyOut, easeLinear } from 'd3-ease';
 import Animate from 'react-move/Animate';
 
+import thumbnail_image from '../../../resources/images/thumb_image_bright.png';
+
 class Title extends Component {
 
     animateNumber = () => {
@@ -17,7 +19,7 @@ class Title extends Component {
                 enter={{
                     opacity: [1],
                     rotate: [360],
-                    timing: {duration: 1000, delay: 700, ease: easeLinear }
+                    timing: {duration: 300, delay: 0, ease: easeLinear }
                 }}
             >
                 {({opacity, rotate}) => {
@@ -25,7 +27,7 @@ class Title extends Component {
                         <div className="thumbnail_title_number"
                             style={{
                                 opacity,
-                                transform: `translate(250px, 170px) rotate(-25deg)`
+                                transform: `translate(240px, 140px) rotate(-25deg)`
                             }}>
                             4
                         </div>
@@ -42,15 +44,15 @@ class Title extends Component {
 
                 start={{
                     opacity: 0,
-                    x: 503,
+                    x: -300,
                     y: 450
                 }}
 
                 enter={{
                     opacity: [1],
-                    x: [270],
+                    x: [225],
                     y: [450],
-                    timing: {duration: 1000, delay: 700, ease: easePolyOut }
+                    timing: {duration: 1000, delay: 1000, ease: easePolyOut }
                 }}
             >
                 {({opacity, x, y}) => {
@@ -75,7 +77,7 @@ class Title extends Component {
 
                 start={{
                     opacity: 0,
-                    x: 503,
+                    x: 500,
                     y: 580
                 }}
 
@@ -101,10 +103,40 @@ class Title extends Component {
         )
     }
 
+    animateImage = () => {
+        return(
+            <Animate
+                show={true}
+
+                start={{
+                    opacity: 0
+                }}
+
+                enter={{
+                    opacity: [1],
+                    timing: {duration: 1000, delay: 700, ease: easePolyOut }
+                }}
+            >
+                {({opacity}) => {
+                    return (
+                        <div className="thumbnail_image"
+                            style={{
+                                opacity,
+                                background: `url(${thumbnail_image})`,
+                                transform: `translate(445px, 150px)`
+                            }}>
+                        </div>
+                    )
+                }}
+            </Animate>
+        )
+    }
+
     render() {
 
         return (
             <div className="thumbnail_title">
+                {this.animateImage()}
                 {this.animateNumber()}
                 {this.animateFirstTitle()}
                 {this.animateSecondTitle()}
