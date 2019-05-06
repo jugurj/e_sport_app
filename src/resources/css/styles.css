@@ -57,8 +57,49 @@ footer .footer_disc {
     position: relative;
 }
 
+.thumbnail_title {
+    position: relative;
+}
+
 .thumbnail_stripes .stripe {
     width: 230px;
     height: 1200px;
     position: absolute;
+}
+
+.thumbnail_title_number {
+    font-size: 220px;
+    color: #353535;
+    transform: translate(250px,170px);
+    position: absolute;
+    font-family: 'Days One', sans-serif;
+    /* font-family: 'Allerta Stencil', sans-serif; */
+}
+
+.thumbnail_first_title {
+    position: absolute;
+    background: #464646;
+    color: #ffffff;
+    font-size: 92px;
+    text-transform: uppercase;
+    padding: 0px 30px;
+}
+
+.thumbnail_first_title::after {
+    position: absolute;
+    content: '';
+    width: 0;
+    height: 0;
+    border-top: 110px solid #464646;
+    border-right: 50px solid transparent;
+    margin-left: 30px;
+}
+
+.thumbnail_second_title {
+    position: absolute;
+    background: #464646;
+    color: #ffffff;
+    font-size: 92px;
+    text-transform: uppercase;
+    padding: 0px 30px;
 }

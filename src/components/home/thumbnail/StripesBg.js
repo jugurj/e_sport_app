@@ -8,24 +8,24 @@ class StripesBg extends Component {
         stripes: [
             {
                 background: '#ff9000',
-                left: 120,
-                rotate: 25,
-                top: -260,
+                left: 320,
+                rotate: -25,
+                top: -150,
                 delay: 0
             },
             {
                 background: '#353535',
                 left: 360,
                 rotate: 25,
-                top: -397,
-                delay: 250
+                top: -400,
+                delay: 500
             },
             {
                 background: '#ff9000',
-                left: 600,
+                left: 605,
                 rotate: 25,
-                top: -498,
-                delay: 500
+                top: -500,
+                delay: 250
             }
         ]
     }
