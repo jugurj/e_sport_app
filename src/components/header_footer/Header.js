@@ -14,7 +14,7 @@ const Header = () => {
                 background: '#353535',
                 boxShadow: 'none',
                 padding: '10px 0px',
-                borderBottom: '2px solid #F57B20'
+                borderBottom: '2px solid #EC9424'
             }}
         >
             <Toolbar style={{ display: 'flex' }}>

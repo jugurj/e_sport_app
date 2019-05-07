@@ -13,8 +13,22 @@ a {
     display: inline-block;
 }
 
+.tag_link > div {
+    transition: ease-in-out .3s;
+}
+
+.tag_link:hover > div {
+    transform: rotate(3deg);
+    filter: brightness(90%);
+}
+
 .img_cover {
     background-size: cover !important;
+}
+
+.container {
+    width:1024px;
+    margin: 0 auto;
 }
 
 .bg_gray {
@@ -114,4 +128,13 @@ footer .footer_disc {
     background-size: contain !important;
     background-repeat: no-repeat !important;
     position: absolute;
+}
+
+/*=============================
+            MATCHES
+===============================*/
+
+.matches_wrapper {
+    background: #2B2B2B;
+    padding: 50px 0px;
 }
