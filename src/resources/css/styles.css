@@ -19,7 +19,8 @@ a {
 
 .tag_link:hover > div {
     transform: rotate(3deg);
-    filter: brightness(90%);
+    background: #ffffff;
+    color: #353535 !important;
 }
 
 .img_cover {
@@ -136,5 +137,85 @@ footer .footer_disc {
 
 .matches_wrapper {
     background: #2B2B2B;
-    padding: 50px 0px;
+    padding: 90px 0px;
 }
+
+.matches_wrapper .home_matches {
+    flex-wrap: wrap;
+    display: flex;
+    margin: 60px 0;
+}
+
+.matches_wrapper .home_matches .item {
+    width: 50%;
+    margin: 35px 0px;
+}
+
+.matches_wrapper .home_matches .item .wrapper {
+    padding-right: 50px;
+}
+
+
+/*=============================
+            MATCHES BLOCK
+===============================*/
+
+.match_block .match_date{
+    display: inline-block;
+    color: #2b2b2b;
+    font-size: 18px;
+    background: #ffffff;
+    font-family: "Fugaz One";
+    padding: 0 12px;
+    text-transform: uppercase;
+}
+
+.match_block .match_wrapper .match_top,
+.match_block .match_wrapper .match_bottom {
+    display: flex;
+}
+
+.match_block .match_wrapper .match_bottom {
+    margin-top: 5px;
+}
+
+.match_block .match_wrapper .match_top .left,
+.match_block .match_wrapper .match_bottom .left {
+    background: #1b1b1b;
+    font-family: 'Righteous', cursive;
+    flex-grow: 1;
+    margin-right: 5px;
+    padding: 10px;
+}
+
+.match_block .match_wrapper .match_top .left div,
+.match_block .match_wrapper .match_bottom .left div {
+    float:left
+}
+
+.match_block .match_wrapper .match_top .left .icon,
+.match_block .match_wrapper .match_bottom .left .icon {
+    width: 50px;
+    height: 50px;
+}
+
+.match_block .match_wrapper .match_top .left .team_name,
+.match_block .match_wrapper .match_bottom .left .team_name {
+    font-size: 26px;
+    padding: 6px 25px;
+    color: #ffffff;
+    font-family: 'Fugaz One', cursive;
+    text-transform: uppercase;
+}
+
+
+.match_block .match_wrapper .match_top .right,
+.match_block .match_wrapper .match_bottom .right { 
+    background: #ec9424;
+    width: 70px;
+    color: #2b2b2b;
+    font-size: 44px;
+    text-align: center;
+    font-weight: bold;
+    padding-top: 6px;
+} 

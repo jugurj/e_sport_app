@@ -11,9 +11,7 @@ export const Tag = (props) => {
                 padding: '5px 10px',
                 display: 'inline-block',
                 fontFamily: 'Fugaz One',
-                hover: {
-                    color: 'red',
-                }
+                border: props.border
             }}
         >
             {props.children}
@@ -21,7 +19,7 @@ export const Tag = (props) => {
 
     if(props.link) {
         return (
-            <Link to={props.linkTo} className="tag_link">
+            <Link to={props.linkTo} className="tag_link" style={{cursor: 'pointer'}}>
                 {template}
             </Link>
         )
