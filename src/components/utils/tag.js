@@ -11,7 +11,8 @@ export const Tag = (props) => {
                 padding: '5px 10px',
                 display: 'inline-block',
                 fontFamily: 'Fugaz One',
-                border: props.border
+                border: props.border,
+                ...props.add
             }}
         >
             {props.children}

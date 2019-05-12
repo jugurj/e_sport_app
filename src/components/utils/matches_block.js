@@ -27,7 +27,9 @@ const MatchesBlock = ({match}) => {
                 <div className="match_bottom">
                     <div className="left">
                         <div className="icon" style={{
-                            background: `url(/images/team_icons/${match.awayThmb}.png)`
+                            background: `url(/images/team_icons/${match.awayThmb}.png)`,
+                            backgroundRepeat: 'no-repeat',
+                            backgroundPosition: 'center'
                         }}></div>
                         <div className="team_name">
                             {match.away}
