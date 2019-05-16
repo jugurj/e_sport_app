@@ -6,15 +6,11 @@ const PlayerCard = (props) => {
             <div 
                 className="player_card_thumbnail" 
                 style={{
-                    background: `#f2f9ff url(${props.bg})`
+                    background: `#2B2B2B url(${props.bg})`
                 }}></div>
             <div className="player_card_info">
-                <div className="player_card_number">
-                    {props.num}
-                </div>
-                <div className="player_card_name">
-                    <span>{props.name}</span>
-                    <span>{props.lastname}</span>
+                <div className="player_card_nickname">
+                    {props.nickname}
                 </div>
             </div>
         </div>

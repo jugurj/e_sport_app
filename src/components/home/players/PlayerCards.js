@@ -9,19 +9,19 @@ class PlayerCards extends Component {
     state = {
         cards: [
             {
-                bottom: 90,
+                bottom: 180,
                 left: 300
             },
             {
-                bottom: 60,
+                bottom: 150,
                 left: 200
             },
             {
-                bottom: 30,
+                bottom: 120,
                 left: 100
             },
             {
-                bottom: 0,
+                bottom: 90,
                 left: 0
             }
         ]
@@ -53,9 +53,7 @@ class PlayerCards extends Component {
                                 bottom
                             }}>
                                 <PlayerCard
-                                    num="30"
-                                    name="Arek"
-                                    lastname="Navojski"
+                                    nickname="Vegi"
                                     bg={playerImage}
                                 />
                             </div>
