@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { easePolyOut } from 'd3-ease';
 import Animate from 'react-move/Animate';
 import playerImage from '../../../resources/images/players/Vegi.png';
+import PlayerCard from '../../utils/player_card';
 
 class PlayerCards extends Component {
 
@@ -51,7 +52,12 @@ class PlayerCards extends Component {
                                 left,
                                 bottom
                             }}>
-                                div
+                                <PlayerCard
+                                    num="30"
+                                    name="Arek"
+                                    lastname="Navojski"
+                                    bg={playerImage}
+                                />
                             </div>
                         )
                     }}

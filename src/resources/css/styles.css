@@ -246,3 +246,48 @@ footer .footer_disc {
     float: right;
     width: 390px;
 }
+
+/*=============================
+            PLAYER CARD
+===============================*/
+
+
+.player_card_wrapper {
+    background: #ffffff;
+    border: 1px solid #ececec;
+    width: 270px;
+    padding: 10px 10px 20px 10px;
+    font-family: 'Fugaz One', cursive;
+    transform: rotate(-2deg);
+}
+
+.player_card_wrapper .player_card_thumbnail {
+    border: 1px solid #eeeeee;
+    width: 100%;
+    height: 250px;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-size: contain !important;
+}
+
+.player_card_wrapper .player_card_info {
+    position: relative;
+}
+
+.player_card_wrapper .player_card_number {
+    color: #d6ecfe;
+    font-size: 185px;
+    text-align: right;
+    line-height: 160px;
+}
+
+.player_card_wrapper .player_card_name {
+    position: absolute;
+    bottom: 0px;
+}
+
+.player_card_wrapper .player_card_name span { 
+    display: block;
+    font-size: 25px;
+    color: #0d1831;
+}
