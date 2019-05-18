@@ -283,3 +283,42 @@ footer .footer_disc {
     font-size: 30px;
     background: #2b2b2b7a;
 }
+
+/*=============================
+         PROMOTION
+===============================*/
+
+.promotion_wrapper {
+    padding: 30px 0px 130px 0px;
+    background: #464646;
+}
+
+.promotion_wrapper .promotion_animation {
+    display: flex;
+    padding: 80px 0px 30px 0px;
+}
+
+.promotion_wrapper .promotion_animation .left { 
+    text-transform: uppercase;
+    text-transform: uppercase;
+    font-size: 150px;
+    font-family: 'Fugaz One', cursive;
+    flex-grow: 1;
+    color:#ffffff;
+    line-height: 135px;
+}
+
+.promotion_wrapper .promotion_animation .left span {
+    display:block;
+ }
+
+.promotion_wrapper .promotion_animation .right {
+    line-height: 135px;
+}
+
+.promotion_wrapper .promotion_animation .right div{
+    width: 280px;
+    height: 280px;
+    background-size: contain !important;
+    transition: ease-in-out .3s;
+}

@@ -67,7 +67,7 @@ class Players extends Component {
                                     linkTo="/team"
                                     add={{
                                         display:'inline-block',
-                                        marginBottom: '20px',
+                                        margin: '30px 0',
                                         border:'2px solid #ffffff'
                                     }}
                                 >
