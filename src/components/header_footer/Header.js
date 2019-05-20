@@ -35,7 +35,7 @@ const Header = () => {
                     <Button color="inherit">MATCHES</Button>
                 </Link>
                 <Link to="/sign-in">
-                    <Button color="inherit">SIGN IN</Button>
+                    <Button color="inherit">ADMIN</Button>
                 </Link>
             </Toolbar>
         </AppBar>
