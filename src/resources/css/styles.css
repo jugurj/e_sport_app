@@ -48,6 +48,12 @@ input {
     box-sizing: border-box;
 }
 
+.error_label {
+    color: #F44336;
+    font-weight: 600;
+    margin: 10px 0px;
+}
+
 /*=============================
             HEADER FOOTER
 ===============================*/
