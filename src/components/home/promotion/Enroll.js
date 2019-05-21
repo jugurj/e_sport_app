@@ -78,7 +78,7 @@ class Enroll extends Component {
 
         for (let element in this.state.formData) {
             dataToSubmit[element] = this.state.formData[element].value;
-            if (!this.state.formData[element].valid ) formIsValid = false;
+            if (!this.state.formData[element].valid) formIsValid = false;
         }
 
         if (formIsValid) {
