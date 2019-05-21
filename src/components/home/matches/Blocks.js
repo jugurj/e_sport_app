@@ -20,7 +20,6 @@ class Blocks extends Component {
             this.setState({
                 matches: matches.reverse()
             })
-            console.log(this.state.matches);
         });
     }
 

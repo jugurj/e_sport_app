@@ -450,7 +450,7 @@ footer .footer_disc {
 .user_dashboard {
     font-size: 60px;
     font-family: 'Fugaz One', cursive;
-    color: #d5ebfe;
+    color: #e2e2e2;
     text-align: center;
     margin-top: 200px;
 }
@@ -467,14 +467,14 @@ footer .footer_disc {
 .admin_container .admin_left_nav {
     min-height: 100vh;
     background: #282828;
-    border-right: 2px solid #01285e;
+    /* border-right: 2px solid #01285e; */
 }
 
 .admin_container .admin_left_nav .list_item {
     color: #ffffff;
     font-weight: 500;
     border-bottom: 1px solid #353535;
-    padding: 15px 25px;
+    padding: 18px 25px;
 }
 
 .admin_container .admin_left_nav .list_item:hover {
@@ -484,4 +484,55 @@ footer .footer_disc {
 
 .admin_container  .admin_right {
     flex-grow: 1;
+}
+
+.admin_container  .admin_progress {
+    text-align: center;
+    margin: 80px 0px;
+    color: #eb9324;
+}
+
+.admin_container .admin_nomatches_msg {
+    text-align: center;
+    margin: 50px 0px;
+    color: #e2e2e2;
+}
+
+.admin_container .admin_table_head{
+    color: rgb(53, 53, 53);
+    font-size: 17px;
+    background: #eb9324;
+}
+
+.admin_container .admin_table_row {
+    transition: ease-in-out .3s;
+}
+
+.admin_container .admin_table_row:hover {
+    background: #f9f9f9;
+}
+
+.admin_container .admin_table_row .edit_link {
+    opacity: 0;
+    color: #b3b3b3;
+    cursor: pointer;
+    transition: ease-in-out .3s;
+}
+
+.admin_container .admin_table_row .edit_link:hover {
+    color: #282828;
+}
+
+.admin_container .admin_table_row:hover .edit_link {
+    opacity: 1;
+}
+
+.admin_container .matches_tag_red {
+    font-weight: 700;
+    color: #F44336;
+}
+
+.admin_container .matches_tag_green {
+    font-weight: 700;
+    color: #2ecc71;
 }
