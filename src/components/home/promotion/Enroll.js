@@ -116,7 +116,8 @@ class Enroll extends Component {
                                 <div className="error_label">
                                     Something is wrong, try again
                                 </div> 
-                                : null}
+                                : null
+                            }
                             <div className="success_label">{this.state.formSuccessMessage}</div>
                             <button onClick={(event) => this.submitForm(event)}>Enroll</button>
                             <div className="enroll_disc">Sed quis nisi ex. Aenean non ligula vitae eros cursus condimentum. Duis maximus aliquam egestas. Donec a gravida libero. Aenean facilisis facilisis nibh, in efficitur purus vehicula sed. Vestibulum vitae lorem justo. </div>
