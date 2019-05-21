@@ -37,7 +37,7 @@ const AdminNav = () => {
     }
 
     const logOutHandler = () => {
-        firebase.auth.signOut().then(() => {
+        firebase.auth().signOut().then(() => {
             console.log("Log out successfull.")
         },(error) => {
             console.log("Error when logged out.")
