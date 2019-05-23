@@ -3,6 +3,8 @@ import AdminLayout from '../../../hoc/AdminLayout';
 
 import FormField from '../../utils/form_field';
 import { validate } from '../../utils/misc';
+import { firebaseMatches, firebaseTeams, firebaseDB } from '../../../firebase';
+import { firebaseLooper } from '../../utils/misc';
 
 class AddMatch extends Component {
 
@@ -22,7 +24,7 @@ class AddMatch extends Component {
                     type: 'date'
                 },
                 validation: {
-                    required: true
+                    required: false
                 },
                 valid: false,
                 validationMessage: '',
@@ -50,6 +52,7 @@ class AddMatch extends Component {
                 config: {
                     label: 'Result Local',
                     name: 'result_local_input',
+                    placeholder: '0',
                     type: 'text'
                 },
                 validation: {
@@ -81,6 +84,7 @@ class AddMatch extends Component {
                 config: {
                     label: 'Result Away',
                     name: 'result_away_input',
+                    placeholder: '0',
                     type: 'text'
                 },
                 validation: {
@@ -96,6 +100,7 @@ class AddMatch extends Component {
                 config: {
                     label: 'Referee',
                     name: 'referee_input',
+                    placeholder: 'Enter referee name...',
                     type: 'text'
                 },
                 validation: {
@@ -111,6 +116,7 @@ class AddMatch extends Component {
                 config: {
                     label: 'Stadium',
                     name: 'stadium_input',
+                    placeholder: 'Enter stadium name...',
                     type: 'text'
                 },
                 validation: {
@@ -131,7 +137,7 @@ class AddMatch extends Component {
                         {key: 'W', value: 'W'},
                         {key: 'L', value: 'L'},
                         {key: 'D', value: 'D'},
-                        {key: 'N/A', value: 'N/A'},
+                        {key: 'n/a', value: 'N/A'},
                     ]
                 },
                 validation: {
@@ -149,8 +155,8 @@ class AddMatch extends Component {
                     name: 'final_select',
                     type: 'select',
                     options: [
-                        {key: 'true', value: true},
-                        {key: 'false', value: false}
+                        {key: 'true', value: 'Yes'},
+                        {key: 'false', value: 'No'}
                     ]
                 },
                 validation: {
@@ -161,6 +167,76 @@ class AddMatch extends Component {
                 showLabel: true
             }
         }
+    }
+
+    componentDidMount = () => {
+        const matchId = this.props.match.params.id;
+        const getTeams = (match, type) => {
+            firebaseTeams.once('value').then((snapshot) => {
+                const teams = firebaseLooper(snapshot);
+                const teamOptions = [];
+
+                snapshot.forEach((childSnapshot) => {
+                    teamOptions.push({
+                        key: childSnapshot.val().shortName,
+                        value: childSnapshot.val().shortName
+                    })
+                });
+
+                console.log(teamOptions);
+
+                this.updateFields(match, teamOptions, teams, type, matchId);
+            })
+        }
+
+        if (!matchId) {
+            // Add match...
+        } else {
+            firebaseDB.ref(`matches/${matchId}`).once('value')
+                .then((snapshot) => {
+                    const match = snapshot.val();
+                    getTeams(match, 'Edit Match');
+                })
+        }
+    }
+
+    updateFields = (match, teamOptions, teams, type, matchId) => {
+        const newFormData = {...this.state.formData};
+
+        for (let key in newFormData) {
+            if (match) {
+                newFormData[key].value = match[key];
+                newFormData[key].valid = true;
+            }
+            if (key === 'local' || key==="away") {
+                newFormData[key].config.options = teamOptions;
+            }
+        }
+
+        this.setState({
+            matchId,
+            formType: type,
+            formData: newFormData,
+            teams
+        })
+    }
+
+    updateForm = ({event, id}) => {
+        const newFormData = {...this.state.formData};
+        const newElement = {...newFormData[id]};
+
+        newElement.value = event.target.value;
+
+        let validData = validate(newElement);
+        newElement.valid = validData[0];
+        newElement.validationMessage = validData[1];
+
+        newFormData[id] = newElement;
+
+        this.setState({
+            formError: false,
+            formData: newFormData
+        });
     }
 
     render() {

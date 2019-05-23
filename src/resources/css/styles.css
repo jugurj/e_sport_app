@@ -74,10 +74,8 @@ select {
 
 .input_label {
     font-size: 20px;
-    margin: 10px 0px;
-    font-weight: 300;
-    background: #e5f4ff;
-    padding: 10px;
+    margin: 15px 0px;
+    font-weight: 500;
     display: inline-block;
 }
 
@@ -579,12 +577,11 @@ footer .footer_disc {
 .admin_submit button {
     font-size: 20px;
     margin: 40px 0px;
-    background: #009688;
 }
 
 .editmatch_dialog_wrapper,
 .editplayer_dialog_wrapper {
-    padding: 20px;
+    padding: 40px;
     width: 480px;
 }
 
@@ -592,8 +589,15 @@ footer .footer_disc {
 .select_team_layout input[name=result_away_input] {
     width: 60px;
     text-align: center;
-    background: #98c6e9;
-    color: #ffffff;
+    background: #eb9324;
+    color: #353535;
+}
+
+.select_team_layout input[name=result_local_input]::-webkit-input-placeholder,
+.select_team_layout input[name=result_away_input]::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: #b36c12;
+    font-weight: 500;
+    text-align: center;
 }
 
 .select_team_layout .wrapper{
