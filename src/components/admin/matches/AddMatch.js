@@ -155,8 +155,8 @@ class AddMatch extends Component {
                     name: 'final_select',
                     type: 'select',
                     options: [
-                        {key: 'true', value: 'Yes'},
-                        {key: 'false', value: 'No'}
+                        {key: true, value: 'Yes'},
+                        {key: false, value: 'No'}
                     ]
                 },
                 validation: {
@@ -188,7 +188,7 @@ class AddMatch extends Component {
         }
 
         if (!matchId) {
-            // Add match...
+            getTeams(false, 'Add Match');
         } else {
             firebaseDB.ref(`matches/${matchId}`).once('value')
                 .then((snapshot) => {
@@ -267,7 +267,11 @@ class AddMatch extends Component {
                         this.setState({formError: true})
                     })
             } else {
-                // Add match...
+                firebaseMatches.push(dataToSubmit).then((res) => {
+                    this.props.history.push('/admin_matches');
+                }).catch((err) => {
+                    this.setState({formError: true})
+                })
             }
         } else {
             this.setState({formError: true})

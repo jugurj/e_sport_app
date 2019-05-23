@@ -4,7 +4,7 @@ const MatchesBlock = ({match}) => {
     return (
         <div className="match_block">
             <div className="match_date">
-                {match.final ? match.date : `Upcoming: ${match.date}`}
+                {JSON.parse(match.final) ? match.date : `Upcoming: ${match.date}`}
             </div>
             <div className="match_wrapper">
 
@@ -20,7 +20,7 @@ const MatchesBlock = ({match}) => {
                         </div>
                     </div>
                     <div className="right">
-                        {match.final ? match.resultLocal : '-'}
+                        {JSON.parse(match.final) ? match.resultLocal : '-'}
                     </div>
                 </div>
 
@@ -36,7 +36,7 @@ const MatchesBlock = ({match}) => {
                         </div>
                     </div>
                     <div className="right">
-                        {match.final ? match.resultAway : '-'}
+                        {JSON.parse(match.final) ? match.resultAway : '-'}
                     </div>
                 </div>
                 

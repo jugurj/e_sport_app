@@ -63,7 +63,7 @@ class AdminMatches extends Component {
                                                 {match.resultLocal} <strong style={{padding:'0 10px'}}>vs</strong> {match.resultAway}
                                             </TableCell>
                                             <TableCell>
-                                                {   match.final ?
+                                                {   JSON.parse(match.final) ?
                                                     <span className="matches_tag_red">Final</span>
                                                     : <span className="matches_tag_green">Not Played yet</span>
                                                 }
