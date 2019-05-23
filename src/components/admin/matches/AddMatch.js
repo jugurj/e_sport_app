@@ -183,8 +183,6 @@ class AddMatch extends Component {
                     })
                 });
 
-                console.log(teamOptions);
-
                 this.updateFields(match, teamOptions, teams, type, matchId);
             })
         }
@@ -239,6 +237,43 @@ class AddMatch extends Component {
         });
     }
 
+    submitForm = (event) => {
+        event.preventDefault();
+
+        let dataToSubmit = {};
+        let formIsValid = true;
+
+        for (let element in this.state.formData) {
+            dataToSubmit[element] = this.state.formData[element].value;
+            if (!this.state.formData[element].valid) formIsValid = false;
+        }
+
+        this.state.teams.forEach((team) => {
+            if (team.shortName === dataToSubmit.local) {
+                dataToSubmit['localThmb'] = team.thmb;
+            }
+            if (team.shortName === dataToSubmit.away) {
+                dataToSubmit['awayThmb'] = team.thmb;
+            }
+        })
+
+        if (formIsValid) {
+            if (this.state.formType === 'Edit Match') {
+                firebaseDB.ref(`matches/${this.state.matchId}`)
+                    .update(dataToSubmit).then((res) => {
+                        this.setState({formSuccessMessage: 'Successfully updated!'});
+                        setTimeout(() => {this.setState({formSuccessMessage: ''})}, 2000);
+                    }).catch((err) => {
+                        this.setState({formError: true})
+                    })
+            } else {
+                // Add match...
+            }
+        } else {
+            this.setState({formError: true})
+        }
+    }
+
     render() {
         return (
             <AdminLayout>
@@ -249,7 +284,7 @@ class AddMatch extends Component {
                     <div>
                         <form onSubmit={(event) => this.submitForm(event)}>
                             <FormField
-                                id={'date_input'}
+                                id={'date'}
                                 formData={this.state.formData.date}
                                 change={(element) => this.updateForm(element)}
                             />
