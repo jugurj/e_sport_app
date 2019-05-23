@@ -536,3 +536,16 @@ footer .footer_disc {
     font-weight: 700;
     color: #2ecc71;
 }
+
+.admin_container h2 {
+    margin: 0px 0px 50px 0px;
+    border-bottom: 1px solid #dbdbdb;
+    color: #414141;
+    font-size: 40px;
+}
+
+.editmatch_dialog_wrapper,
+.editplayer_dialog_wrapper {
+    padding: 20px;
+    width: 480px;
+}
