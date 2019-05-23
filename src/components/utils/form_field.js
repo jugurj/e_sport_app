@@ -19,7 +19,7 @@ const FormField = ({id, formData, change}) => {
                 formTemplate = (
                     <div>
                         {   formData.showLabel ?
-                                <div>
+                                <div className="input_label">
                                     {formData.config.label}
                                 </div>
                             : null
@@ -29,6 +29,31 @@ const FormField = ({id, formData, change}) => {
                             value={formData.value}
                             onChange={(event) => change({event, id})}
                         />
+                        { showError() }
+                    </div>
+                )
+            break;
+            case('select'):
+                formTemplate = (
+                    <div>
+                        {   formData.showLabel ?
+                                <div className="input_label">
+                                    {formData.config.label}
+                                </div>
+                            : null
+                        }
+                        <select
+                            value={formData.value}
+                            onChange={(event) => change({event, id})}
+                        >
+                            <option value="">Select option...</option>
+                            {   formData.config.options.map((option) => (
+                                    <option key={option.key} value={option.key}>
+                                        {option.value}
+                                    </option>
+                                ))
+                            }
+                        </select>
                         { showError() }
                     </div>
                 )
