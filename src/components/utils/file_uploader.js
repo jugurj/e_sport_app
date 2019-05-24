@@ -22,6 +22,25 @@ class FileUploader extends Component {
         return null;
     }
 
+    handleUploadStart = () => {
+        this.setState({isUploading: true})
+    }
+
+    handleUploadError = () => {
+        this.setState({isUploading: false})
+    }
+
+    handleUploadSuccess = (filename) => {
+        this.setState({
+            name: filename,
+            isUploading: false,
+        });
+
+        firebase.storage().ref(this.props.dir)
+            .child(filename).getDownloadURL()
+            .then((url) => { this.setState({fileURL: url}) })
+    }
+
     render() {
         return (
             <div>
@@ -29,7 +48,7 @@ class FileUploader extends Component {
                         <div>
                             <div className="input_label">{this.props.tag}</div>
                             <Fileuploader
-                                accept="image/*"
+                                accept="images/*"
                                 name="image"
                                 randomizeFilename
                                 storageRef={firebase.storage().ref(this.props.dir)}
@@ -38,7 +57,23 @@ class FileUploader extends Component {
                                 onUploadSuccess={this.handleUploadSuccess}
                             />
                         </div>
-                        : null}
+                        : <div className="image_upload_container">
+                            <img
+                                style={{width: '100%'}}
+                                src={this.state.fileURL}
+                                alt={this.state.name}
+                            />
+                            <div className="remove" onClick={() => this.clearUpload()}>
+                                Remove
+                            </div>
+                        </div>
+                }
+                {   this.state.isUploading ?
+                        <div className="progress">
+                            <CircularProgress style={{color: 'inherit'}}/>
+                        </div>
+                        : null
+                }
             </div>
         );
     }
