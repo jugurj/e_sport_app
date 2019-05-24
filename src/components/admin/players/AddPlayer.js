@@ -4,6 +4,7 @@ import AdminLayout from '../../../hoc/AdminLayout';
 import FormField from '../../utils/form_field';
 import { validate } from '../../utils/misc';
 import { firebasePlayers, firebaseDB, firebase } from '../../../firebase';
+import FileUploader from '../../utils/file_uploader';
 
 class AddPlayer extends Component {
 
@@ -111,6 +112,14 @@ class AddPlayer extends Component {
                 valid: false,
                 validationMessage: '',
                 showLabel: true
+            },
+            image: {
+                element: 'image',
+                value: '',
+                validation: {
+                    required: true
+                },
+                valid: true
             }
         }
     }
@@ -118,11 +127,10 @@ class AddPlayer extends Component {
     componentDidMount = () => {
         const playerId = this.props.match.params.id;
 
-        if (playerId) {
-            this.setState({
-                formType: 'Add Player'
-            })
+        if (!playerId) {
+            this.setState({formType: 'Add Player'})
         } else {
+            this.setState({formType: 'Edit Player'});
             // ...
         }
     }
@@ -163,6 +171,14 @@ class AddPlayer extends Component {
         }
     }
 
+    resetImage = () => {
+        // ...
+    }
+
+    getFileName = () => {
+        // ...
+    }
+
     render() {
         return (
             <AdminLayout>
@@ -170,6 +186,16 @@ class AddPlayer extends Component {
                     <h2>{this.state.formType}</h2>
                     <div>
                         <form onSubmit={(event) => this.submitForm(event)}>
+
+                            <FileUploader
+                                dir="players"
+                                tag={"Thumbnail"}
+                                defaultImg={this.state.defaultImg}
+                                defaultImgName={this.state.formData.image.value}
+                                resetImage={() => this.resetImage()}
+                                filename={(filename) => this.getFileName(filename)}
+                            />
+
                             <FormField
                                 id={'name'}
                                 formData={this.state.formData.name}

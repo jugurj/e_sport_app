@@ -188,8 +188,10 @@ class AddMatch extends Component {
         }
 
         if (!matchId) {
+            this.setState({formType: 'Add Match'})
             getTeams(false, 'Add Match');
         } else {
+            this.setState({formType: 'Edit Match'});
             firebaseDB.ref(`matches/${matchId}`).once('value')
                 .then((snapshot) => {
                     const match = snapshot.val();
