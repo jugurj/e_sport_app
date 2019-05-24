@@ -44,8 +44,10 @@ class AdminPlayers extends Component {
                                 <TableRow>
                                     <TableCell className="admin_table_head">First Name</TableCell>
                                     <TableCell className="admin_table_head">Last Name</TableCell>
-                                    <TableCell className="admin_table_head">Number</TableCell>
-                                    <TableCell className="admin_table_head">Position</TableCell>
+                                    <TableCell className="admin_table_head">Nickname</TableCell>
+                                    <TableCell className="admin_table_head">Age</TableCell>
+                                    <TableCell className="admin_table_head">Game</TableCell>
+                                    <TableCell className="admin_table_head">Country</TableCell>
                                     <TableCell className="admin_table_head"></TableCell>
                                 </TableRow>
                             </TableHead>
@@ -60,10 +62,16 @@ class AdminPlayers extends Component {
                                                 {player.lastname}
                                             </TableCell>
                                             <TableCell>
-                                                {player.number}
+                                                {player.nickname}
                                             </TableCell>
                                             <TableCell>
-                                                {player.position}
+                                                {player.age}
+                                            </TableCell>
+                                            <TableCell>
+                                                {player.game}
+                                            </TableCell>
+                                            <TableCell>
+                                                {player.country}
                                             </TableCell>
                                             <TableCell>
                                                 <Link className="edit_link" to={`/admin_players/add_player/${player.id}`}>

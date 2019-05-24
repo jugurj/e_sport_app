@@ -24,7 +24,7 @@ class AddMatch extends Component {
                     type: 'date'
                 },
                 validation: {
-                    required: false
+                    required: true
                 },
                 valid: false,
                 validationMessage: '',
