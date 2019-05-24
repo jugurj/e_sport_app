@@ -38,7 +38,18 @@ class FileUploader extends Component {
 
         firebase.storage().ref(this.props.dir)
             .child(filename).getDownloadURL()
-            .then((url) => { this.setState({fileURL: url}) })
+            .then((url) => { this.setState({fileURL: url}) });
+
+        this.props.filename(filename);
+    }
+
+    clearUpload = () => {
+        this.setState({
+            name: '',
+            isUploading: false,
+            fileURL: ''
+        });
+        this.props.resetImage();
     }
 
     render() {
@@ -47,6 +58,12 @@ class FileUploader extends Component {
                 {   !this.state.fileURL ?
                         <div>
                             <div className="input_label">{this.props.tag}</div>
+                            {   this.state.isUploading ?
+                                    <div className="progress">
+                                        <CircularProgress style={{color: 'inherit'}}/>
+                                    </div>
+                                    : null
+                            }
                             <Fileuploader
                                 accept="images/*"
                                 name="image"
@@ -58,6 +75,13 @@ class FileUploader extends Component {
                             />
                         </div>
                         : <div className="image_upload_container">
+                            <div className="input_label">{this.props.tag}</div>
+                            {   this.state.isUploading ?
+                                    <div className="progress">
+                                        <CircularProgress style={{color: 'inherit'}}/>
+                                    </div>
+                                    : null
+                            }
                             <img
                                 style={{width: '100%'}}
                                 src={this.state.fileURL}
@@ -67,12 +91,6 @@ class FileUploader extends Component {
                                 Remove
                             </div>
                         </div>
-                }
-                {   this.state.isUploading ?
-                        <div className="progress">
-                            <CircularProgress style={{color: 'inherit'}}/>
-                        </div>
-                        : null
                 }
             </div>
         );

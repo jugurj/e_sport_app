@@ -119,7 +119,7 @@ class AddPlayer extends Component {
                 validation: {
                     required: true
                 },
-                valid: true
+                valid: false
             }
         }
     }
@@ -135,11 +135,15 @@ class AddPlayer extends Component {
         }
     }
 
-    updateForm = ({event, id}) => {
+    updateForm = ({event, id}, content = '') => {
         const newFormData = {...this.state.formData};
         const newElement = {...newFormData[id]};
 
-        newElement.value = event.target.value;
+        if (content === '') {
+            newElement.value = event.target.value;
+        } else {
+            newElement.value = content;
+        }
 
         let validData = validate(newElement);
         newElement.valid = validData[0];
@@ -165,18 +169,40 @@ class AddPlayer extends Component {
         }
 
         if (formIsValid) {
-            // ...
+            if (this.state.formType === 'Edit Player') {
+
+            } else {
+                firebasePlayers.push(dataToSubmit).then(() => {
+                    this.props.history.push('/admin_players')
+                }).catch(() => {
+                    this.setState({formError: true})
+                })
+            }
         } else {
             this.setState({formError: true})
         }
     }
 
     resetImage = () => {
-        // ...
+        firebase.storage().ref(`players/${this.state.formData.image.value}`)
+            .delete().then(() => {
+
+                const newFormData = {...this.state.formData};
+                newFormData['image'].value = '';
+                newFormData['image'].valid = false;
+
+                this.setState({
+                    defaultImg: '',
+                    formData: newFormData
+                });
+            }).catch(() => {
+                this.setState({formError: true})
+            })
     }
 
-    getFileName = () => {
-        // ...
+    getFileName = (filename) => {
+        console.log(filename);
+        this.updateForm({id:'image'}, filename)
     }
 
     render() {
