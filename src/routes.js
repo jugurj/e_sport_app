@@ -11,11 +11,13 @@ import SignIn from './components/authorization/SignIn';
 import Dashboard from './components/admin/Dashboard';
 import AdminMatches from './components/admin/matches/AdminMatches';
 import AddMatch from './components/admin/matches/AddMatch';
+import AdminPlayers from './components/admin/players/AdminPlayers';
 
 const Routes = (props) => {
   return (
     <Layout>
       <Switch>
+        <PrivateRoute {...props} path='/admin_players' exact component={AdminPlayers}/>
         <PrivateRoute {...props} path='/admin_matches/add_match' exact component={AddMatch}/>
         <PrivateRoute {...props} path='/admin_matches/add_match/:id' exact component={AddMatch}/>
         <PrivateRoute {...props} path='/admin_matches' exact component={AdminMatches}/>
