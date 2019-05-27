@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { easePolyOut } from 'd3-ease';
 import Animate from 'react-move/Animate';
-import playerImage from '../../../resources/images/players/Vegi.png';
+import playerImage from '../../../resources/images/players/vegi.png';
 import PlayerCard from '../../utils/player_card';
 
 class PlayerCards extends Component {

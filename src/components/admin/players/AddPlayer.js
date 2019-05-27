@@ -131,8 +131,36 @@ class AddPlayer extends Component {
             this.setState({formType: 'Add Player'})
         } else {
             this.setState({formType: 'Edit Player'});
-            // ...
+            firebaseDB.ref(`players/${playerId}`).once('value')
+                .then((snapshot) => {
+                    const playerData = snapshot.val();
+                    firebase.storage().ref('players').child(playerData.image).getDownloadURL()
+                        .then((url) => {
+                            this.updateFields(playerData, playerId, 'Edit Player', url)
+                        }).catch((err) => {
+                            this.updateFields({
+                                ...playerData,
+                                image: ''
+                            }, playerId, 'Edit Player', '')
+                        })
+                })
         }
+    }
+
+    updateFields = (player, playerId, type, defaultImg) => {
+        const newFormData = {...this.state.formData};
+
+        for (let key in newFormData) {
+            newFormData[key].value = player[key];
+            newFormData[key].valid = true;
+        }
+
+        this.setState({
+            playerId,
+            formType: type,
+            formData: newFormData,
+            defaultImg
+        })
     }
 
     updateForm = ({event, id}, content = '') => {
@@ -170,7 +198,13 @@ class AddPlayer extends Component {
 
         if (formIsValid) {
             if (this.state.formType === 'Edit Player') {
-
+                firebaseDB.ref(`players/${this.state.playerId}`)
+                    .update(dataToSubmit).then(() => {
+                        this.setState({formSuccessMessage: 'Successfully updated!'});
+                        setTimeout(() => {this.setState({formSuccessMessage: ''})}, 2000);
+                    }).catch((err) => {
+                        this.setState({formError: true})
+                    })
             } else {
                 firebasePlayers.push(dataToSubmit).then(() => {
                     this.props.history.push('/admin_players')
@@ -201,7 +235,6 @@ class AddPlayer extends Component {
     }
 
     getFileName = (filename) => {
-        console.log(filename);
         this.updateForm({id:'image'}, filename)
     }
 
