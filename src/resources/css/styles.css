@@ -664,3 +664,69 @@ footer .footer_disc {
     margin: 80px 0px;
     color: #eb9324;
 }
+
+/*=============================
+        MATCHES
+===============================*/
+
+.matches_container {
+    margin-top: 96px;
+}
+
+.matches_wrapper {
+    display: flex;
+}
+
+.matches_wrapper .left {
+    flex-grow: 1;
+}
+
+.league_table_wrapper {
+    border-left: 1px solid #98c6e9;
+}
+.league_table_wrapper .title {
+    padding: 22px;
+    font-size: 22px;
+    color: #ffffff;
+    background: #98c6e9;
+    border-bottom: 1px solid #eb9324;
+}
+
+.matches_wrapper .progress {
+    text-align: center;
+    padding: 60px 0px;
+}
+
+.match_filters {
+    display: flex;
+    border-bottom: 1px solid #eb9324;
+    background: #dff1ff;
+}
+.match_filters .tag {
+   font-weight: 300;
+   margin-bottom: 5px;
+   color: #656565;
+}
+.match_filters .option {
+   background: #ffffff;
+   padding: 5px 9px;
+   border-radius: 3px;
+   font-size: 13px;
+   margin-right: 5px;
+   cursor: pointer;
+}
+
+.match_filters .option.active {
+   background: #62a2d3;
+   color: #fff;
+}
+
+.match_filters_box {
+   padding: 10px 20px;
+   border-right: 1px solid #eb9324;
+   background: #dff1ff;
+}
+
+.match_filters .cont {
+   display: flex;
+}
