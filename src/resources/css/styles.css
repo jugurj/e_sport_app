@@ -676,27 +676,16 @@ footer .footer_disc {
     background: #2b2b2b;
 }
 
-.matches_container .matches_wrapper {
+.matches_container .the_matches_wrapper {
     display: flex;
     background: #2b2b2b;
 }
 
-.matches_wrapper .left {
+.the_matches_wrapper .left {
     flex-grow: 1;
 }
 
-.league_table_wrapper {
-    border-left: 1px solid #98c6e9;
-}
-.league_table_wrapper .title {
-    padding: 22px;
-    font-size: 22px;
-    color: #ffffff;
-    background: #98c6e9;
-    border-bottom: 1px solid #eb9324;
-}
-
-.matches_wrapper .progress {
+.the_matches_wrapper .progress {
     text-align: center;
     padding: 60px 0px;
 }
@@ -704,12 +693,12 @@ footer .footer_disc {
 .match_filters {
     display: flex;
     border-bottom: 1px solid #eb9324;
-    background: #dff1ff;
+    background: #d4831e;
 }
 .match_filters .tag {
-   font-weight: 300;
+   font-weight: 500;
    margin-bottom: 5px;
-   color: #656565;
+   color: #2b2b2b;;
 }
 .match_filters .option {
    background: #ffffff;
@@ -721,17 +710,17 @@ footer .footer_disc {
 }
 
 .match_filters .option.active {
-   background: #62a2d3;
+   background: #2b2b2b;
    color: #fff;
 }
 
 .match_filters_box {
    padding: 10px 20px;
    border-right: 1px solid #eb9324;
-   background: #dff1ff;
+   background: #eb9324;
 }
 
-.match_filters .cont {
+.match_filters .match_filters_container {
    display: flex;
 }
 
@@ -745,10 +734,10 @@ footer .footer_disc {
     clear: both;
 }
 
-.match_box_big .block_wraper {
-    display: inline-block;
+.match_box_big .block_wrapper {
+    line-height: 32px;
     margin-right: 50px;
-    
+    float: left;
 }
 
 .match_box_big .block {
@@ -758,7 +747,6 @@ footer .footer_disc {
 .match_box_big .icon{
     width: 50px;
     height: 50px;
-    background-size: cover !important;
 }
 
 .match_box_big .block .team,
@@ -771,16 +759,4 @@ footer .footer_disc {
 
 .match_box_big .block .result {
     font-weight: 500;
-}
-
-.block_wraper.info {
-    border-left: 1px solid #eb9324;
-    height: 102px;
-    padding-left: 10px;
-    font-weight: 300;
-    color: #5e5e5e;
-}
-
-.block_wraper.info div {
-    margin: 5px 0px;
 }
