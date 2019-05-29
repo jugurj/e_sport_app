@@ -15,7 +15,7 @@ class Matches extends Component {
         resultFiler: 'All'
     }
 
-    onComponentMount() {
+    componentDidMount() {
         firebaseMatches.once('value').then((snapshot) => {
             const matches = firebaseLooper(snapshot);
 
@@ -38,6 +38,13 @@ class Matches extends Component {
                         <div className="match_filters">
 
                         </div>
+                        {this.state.loading ?
+                            <div className="matches_progress">
+                                <CircularProgress color="inherit"/>
+                                <h3>Loading...</h3>
+                            </div>
+                            : null
+                        }
                         <MatchesList matches={filterMatches}/>
                     </div>
                 </div>

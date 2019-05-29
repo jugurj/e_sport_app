@@ -659,7 +659,8 @@ footer .footer_disc {
     margin-bottom: 20px;
 }
 
-.team_progress {
+.team_progress,
+.matches_progress {
     text-align: center;
     margin: 80px 0px;
     color: #eb9324;
@@ -671,10 +672,13 @@ footer .footer_disc {
 
 .matches_container {
     margin-top: 96px;
+    min-height: 100vh;
+    background: #2b2b2b;
 }
 
-.matches_wrapper {
+.matches_container .matches_wrapper {
     display: flex;
+    background: #2b2b2b;
 }
 
 .matches_wrapper .left {
@@ -729,4 +733,54 @@ footer .footer_disc {
 
 .match_filters .cont {
    display: flex;
+}
+
+.match_box_big {
+    width:100%;
+    border-bottom: 2px solid #eb9324;
+    color: #ffffff;
+    padding: 20px;
+    box-sizing: border-box;
+    height: 143px;
+    clear: both;
+}
+
+.match_box_big .block_wraper {
+    display: inline-block;
+    margin-right: 50px;
+    
+}
+
+.match_box_big .block {
+    display: flex;
+}
+
+.match_box_big .icon{
+    width: 50px;
+    height: 50px;
+    background-size: cover !important;
+}
+
+.match_box_big .block .team,
+.match_box_big .block .result {
+    font-size: 21px;
+    line-height: 51px;
+    margin-left: 18px;
+    font-weight: 300;
+}
+
+.match_box_big .block .result {
+    font-weight: 500;
+}
+
+.block_wraper.info {
+    border-left: 1px solid #eb9324;
+    height: 102px;
+    padding-left: 10px;
+    font-weight: 300;
+    color: #5e5e5e;
+}
+
+.block_wraper.info div {
+    margin: 5px 0px;
 }
