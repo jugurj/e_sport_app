@@ -16,6 +16,7 @@ class Matches extends Component {
     }
 
     componentDidMount() {
+        window.scrollTo(0, 0);
         firebaseMatches.once('value').then((snapshot) => {
             const matches = firebaseLooper(snapshot);
 

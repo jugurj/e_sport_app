@@ -760,3 +760,26 @@ footer .footer_disc {
 .match_box_big .block .result {
     font-weight: 500;
 }
+
+/*=============================
+        NOT FOUND
+===============================*/
+
+.not_found_container {
+    background: #2b2b2b;
+    text-align: center;
+    margin-top: 96px;
+    padding: 20px;
+    background-size: 5px 5px !important;
+    min-height: 100vh;
+    text-align: center;
+    font-size: 70px;
+    font-family: 'Fugaz One', cursive;
+    color: #eb9324;
+    text-transform: uppercase;
+}
+
+.not_found_container h2 {
+    margin: 0;
+    margin-top: 90px;
+}

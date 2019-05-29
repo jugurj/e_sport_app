@@ -20,7 +20,7 @@ const Matches = () => {
                     size="20px"
                     color="#ffffff"
                     link={true}
-                    linkTo="/team"
+                    linkTo="/matches"
                     border="2px solid #ffffff"
                 >
                     See More Matches
