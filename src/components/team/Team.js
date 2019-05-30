@@ -17,6 +17,7 @@ class Team extends Component {
     }
 
     componentDidMount() {
+        window.scrollTo(0, 0);
         firebasePlayers.once('value').then((snapshot) => {
             const players = firebaseLooper(snapshot);
             const promises = [];

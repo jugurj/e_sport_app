@@ -125,6 +125,7 @@ class AddPlayer extends Component {
     }
 
     componentDidMount = () => {
+        window.scrollTo(0, 0);
         const playerId = this.props.match.params.id;
 
         if (!playerId) {
@@ -201,7 +202,10 @@ class AddPlayer extends Component {
                 firebaseDB.ref(`players/${this.state.playerId}`)
                     .update(dataToSubmit).then(() => {
                         this.setState({formSuccessMessage: 'Successfully updated!'});
-                        setTimeout(() => {this.setState({formSuccessMessage: ''})}, 2000);
+                        setTimeout(() => {
+                            this.setState({formSuccessMessage: ''});
+                            this.props.history.push('/admin_players');
+                        }, 500);
                     }).catch((err) => {
                         this.setState({formError: true})
                     })

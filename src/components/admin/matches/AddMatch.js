@@ -170,6 +170,7 @@ class AddMatch extends Component {
     }
 
     componentDidMount = () => {
+        window.scrollTo(0, 0);
         const matchId = this.props.match.params.id;
         const getTeams = (match, type) => {
             firebaseTeams.once('value').then((snapshot) => {
@@ -264,7 +265,10 @@ class AddMatch extends Component {
                 firebaseDB.ref(`matches/${this.state.matchId}`)
                     .update(dataToSubmit).then((res) => {
                         this.setState({formSuccessMessage: 'Successfully updated!'});
-                        setTimeout(() => {this.setState({formSuccessMessage: ''})}, 2000);
+                        setTimeout(() => {
+                            this.setState({formSuccessMessage: ''});
+                            this.props.history.push('/admin_matches');
+                        }, 500);
                     }).catch((err) => {
                         this.setState({formError: true})
                     })

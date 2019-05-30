@@ -42,6 +42,10 @@ class SignIn extends Component {
         }
     }
 
+    componentDidMount = () => {
+        window.scrollTo(0, 0);
+    }
+
     updateForm = ({event, id}) => {
         const newFormData = {...this.state.formData};
         const newElement = {...newFormData[id]};
