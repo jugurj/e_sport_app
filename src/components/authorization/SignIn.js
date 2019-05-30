@@ -76,7 +76,7 @@ class SignIn extends Component {
                 dataToSubmit.email,
                 dataToSubmit.password
             ).then(() => {
-                this.props.history.push('/dashboard')
+                this.props.history.push('/admin_matches')
             }).catch(error => {
                 this.setState({
                     formError: true
