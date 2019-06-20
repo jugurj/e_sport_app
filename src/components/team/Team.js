@@ -3,7 +3,6 @@ import PlayerCard from '../utils/player_card';
 import Fade from 'react-reveal/Fade';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
-import stripes from '../../resources/images/stripes.png';
 import { firebasePlayers, firebase } from '../../firebase';
 import { firebaseLooper } from '../utils/misc';
 import { Promise } from 'core-js';
