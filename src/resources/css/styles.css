@@ -179,7 +179,7 @@ footer .footer_disc a:hover {
     opacity: .7;
 }
 
-.custom_drawer .MuiPaper-root-10 {
+.custom_drawer > div ~ div {
     background: #3e4b5b;
 }
 

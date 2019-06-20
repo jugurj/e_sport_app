@@ -13,6 +13,10 @@
 
 # firebase
 src/firebase.js
+firebase-debug.log
+firebase.json
+.firebaserc
+/.firebase
 
 # misc
 .DS_Store
