@@ -10,19 +10,21 @@ class PlayerCards extends Component {
         cards: [
             {
                 bottom: 180,
-                left: 300
+                left: 230,
+                rotate: 10,
+                zIndex: 30
             },
             {
                 bottom: 150,
-                left: 200
+                left: 130,
+                rotate: -5,
+                zIndex: 20
             },
             {
                 bottom: 120,
-                left: 100
-            },
-            {
-                bottom: 90,
-                left: 0
+                left: 30,
+                rotate: -15,
+                zIndex: 10
             }
         ]
     }
@@ -36,25 +38,32 @@ class PlayerCards extends Component {
 
                     start={{
                         left: 0,
-                        bottom: 0
+                        bottom: 0,
+                        rotate: 0,
+                        zIndex: [card.zIndex]
                     }}
 
                     enter={{
                         left: [card.left],
                         bottom: [card.bottom],
+                        rotate: [card.rotate],
+                        zIndex: [card.zIndex],
                         timing: {duration: 500, ease: easePolyOut}
                     }}
                 >
-                    {({ left, bottom }) => {
+                    {({ left, bottom, rotate, zIndex }) => {
                         return (
                             <div style={{
                                 position: 'absolute',
                                 left,
-                                bottom
+                                bottom,
+                                transform: `rotate(${rotate}deg)`,
+                                zIndex
                             }}>
                                 <PlayerCard
                                     nickname="Vegi"
                                     bg={playerImage}
+                                    player={{}}
                                 />
                             </div>
                         )

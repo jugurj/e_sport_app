@@ -58,71 +58,72 @@ class Matches extends Component {
 
         return (
             <div className="matches_container">
-                <div className="the_matches_wrapper">
-                    <div className="left">
-                        <div className="match_filters">
-                            <div className="match_filters_box">
-                                <div className="tag">
-                                    Show Match
-                                </div>
-                                <div className="match_filters_container">
-                                    <div className={`option ${finishedFilter === 'All' ? 'active' : ''}`}
-                                        onClick={() => this.filterMatches('All')}>
-                                        All
-                                    </div>
-                                    <div className={`option ${finishedFilter === true ? 'active' : ''}`}
-                                        onClick={() => this.filterMatches(true)}>
-                                        Finished
-                                    </div>
-                                    <div className={`option ${finishedFilter === false ? 'active' : ''}`}
-                                        onClick={() => this.filterMatches(false)}>
-                                        Not Finished
-                                    </div>
-                                </div>
+                <div className="match_filters">
+                    <div className="container">
+                        <div className="match_filters_box">
+                            <div className="tag">
+                                Show Match
                             </div>
-
-                            <div className="match_filters_box">
-                                <div className="tag">
-                                    Result
+                            <div className="match_filters_container">
+                                <div className={`option ${finishedFilter === 'All' ? 'active' : ''}`}
+                                    onClick={() => this.filterMatches('All')}>
+                                    All
                                 </div>
-                                <div className="match_filters_container">
-                                    <div className={`option ${resultFiler === 'All' ? 'active' : ''}`}
-                                        onClick={() => this.filterResult('All')}>
-                                        All
-                                    </div>
-                                    <div className={`option ${resultFiler === 'W' ? 'active' : ''}`}
-                                        onClick={() => this.filterResult('W')}>
-                                        W
-                                    </div>
-                                    <div className={`option ${resultFiler === 'L' ? 'active' : ''}`}
-                                        onClick={() => this.filterResult('L')}>
-                                        L
-                                    </div>
-                                    <div className={`option ${resultFiler === 'D' ? 'active' : ''}`}
-                                        onClick={() => this.filterResult('D')}>
-                                        D
-                                    </div>
+                                <div className={`option ${finishedFilter === true ? 'active' : ''}`}
+                                    onClick={() => this.filterMatches(true)}>
+                                    Finished
+                                </div>
+                                <div className={`option ${finishedFilter === false ? 'active' : ''}`}
+                                    onClick={() => this.filterMatches(false)}>
+                                    Not Finished
                                 </div>
                             </div>
                         </div>
 
-                        {   this.state.loading ?
-                                <div className="matches_progress">
-                                    <CircularProgress color="inherit"/>
-                                    <h3>Loading...</h3>
+                        <div className="match_filters_box">
+                            <div className="tag">
+                                Result
+                            </div>
+                            <div className="match_filters_container">
+                                <div className={`option ${resultFiler === 'All' ? 'active' : ''}`}
+                                    onClick={() => this.filterResult('All')}>
+                                    All
                                 </div>
-                                : !this.state.matchesFilter.length ?
-                                    <h4 style={{
-                                        color: '#eb9324',
-                                        textAlign: 'center',
-                                        paddingTop: '40px'
-                                    }}>
-                                        No results found...
-                                    </h4>
-                                    : null
-                        }
-                        <MatchesList matches={matchesFilter}/>
+                                <div className={`option ${resultFiler === 'W' ? 'active' : ''}`}
+                                    onClick={() => this.filterResult('W')}>
+                                    W
+                                </div>
+                                <div className={`option ${resultFiler === 'L' ? 'active' : ''}`}
+                                    onClick={() => this.filterResult('L')}>
+                                    L
+                                </div>
+                                <div className={`option ${resultFiler === 'D' ? 'active' : ''}`}
+                                    onClick={() => this.filterResult('D')}>
+                                    D
+                                </div>
+                            </div>
+                        </div>
                     </div>
+                </div>
+
+                <div className="the_matches_wrapper">
+                    {   this.state.loading ?
+                            <div className="matches_progress">
+                                <CircularProgress color="inherit"/>
+                                <h3>Loading...</h3>
+                            </div>
+                            : !this.state.matchesFilter.length ?
+                                <h4 style={{
+                                    color: '#FE5000',
+                                    textAlign: 'center',
+                                    paddingTop: '40px',
+                                    fontFamily: 'Montserrat'
+                                }}>
+                                    No results found...
+                                </h4>
+                                : null
+                    }
+                    <MatchesList matches={matchesFilter}/>
                 </div>
             </div>
         );

@@ -28,6 +28,7 @@ class Team extends Component {
                         firebase.storage().ref('players').child(players[player].image)
                             .getDownloadURL().then((url) => {
                                 players[player].url = url;
+                                players[player].active = false;
                                 resolve();
                             }).catch((err) => {
                                 reject();
@@ -46,6 +47,12 @@ class Team extends Component {
         })
     }
 
+    handleClick = (player) => {
+        let updatedPlayers = this.state.players;
+        updatedPlayers.map((person) => (person.active = (person.nickname === player.nickname) ? !person.active : person.active));
+        this.setState({ players: updatedPlayers });
+    }
+
     getCardsFromCategory = (category) => {
         return (
             this.state.players ?
@@ -54,8 +61,10 @@ class Team extends Component {
                     <Fade left delay={i*30} key={i}>
                         <div className="item">
                             <PlayerCard
-                                nickname={player.nickname}
+                                player={player}
                                 bg={player.url}
+                                handleClick={() => this.handleClick(player)}
+                                active={player.active}
                             />
                         </div>
                     </Fade>
@@ -69,57 +78,60 @@ class Team extends Component {
         return (
             <div className="team_container"
                 style={{
-                    background:`#464646 url(${stripes})`
+                    background:`linear-gradient(to bottom, rgba(17, 24, 33, 0.81) 0%, rgba(64, 77, 93, 0.81) 50.52%, rgba(17, 24, 33, 0.81) 100%) 0% 0% / 5px, url(${stripes})`,
+                    backgroundSize: '5px'
                 }}
             >
-                {   !this.state.loading ?
-                        <div>
-                            <div className="team_category_wrapper">
-                                <div className="title">CS:GO</div>
-                                <div className="team_cards">
-                                    {this.getCardsFromCategory('CS:GO')}
-                                </div>
-                            </div>
-
-                            <div className="team_category_wrapper">
-                                <div className="title">Dota2</div>
-                                <div className="team_cards">
-                                    {this.getCardsFromCategory('Dota2')}
-                                </div>
-                            </div>
-
-                            <div className="team_category_wrapper">
-                                <div className="title">Artifact</div>
-                                <div className="team_cards">
-                                    {this.getCardsFromCategory('Artifact')}
-                                </div>
-                            </div>
-
-                            <div className="team_category_wrapper">
-                                <div className="title">Fortnite</div>
-                                <div className="team_cards">
-                                    {this.getCardsFromCategory('Fortnite')}
-                                </div>
-                            </div>
-
-                            <div className="team_category_wrapper">
-                                <div className="title">Paladins</div>
-                                <div className="team_cards">
-                                    {this.getCardsFromCategory('Paladins')}
-                                </div>
-                            </div>
-                        </div>
-
-                        :   <div className="team_progress">
-                                { this.state.loading ?
-                                    <div>
-                                        <CircularProgress color="inherit"/>
-                                        <h3>Loading...</h3>
+                <div className="container">
+                    {   !this.state.loading ?
+                            <div>
+                                <div className="team_category_wrapper">
+                                    <div className="title">CS:GO</div>
+                                    <div className="team_cards">
+                                        {this.getCardsFromCategory('CS:GO')}
                                     </div>
-                                    : null
-                                }
+                                </div>
+
+                                <div className="team_category_wrapper">
+                                    <div className="title">Dota2</div>
+                                    <div className="team_cards">
+                                        {this.getCardsFromCategory('Dota2')}
+                                    </div>
+                                </div>
+
+                                <div className="team_category_wrapper">
+                                    <div className="title">Artifact</div>
+                                    <div className="team_cards">
+                                        {this.getCardsFromCategory('Artifact')}
+                                    </div>
+                                </div>
+
+                                <div className="team_category_wrapper">
+                                    <div className="title">Fortnite</div>
+                                    <div className="team_cards">
+                                        {this.getCardsFromCategory('Fortnite')}
+                                    </div>
+                                </div>
+
+                                <div className="team_category_wrapper">
+                                    <div className="title">Paladins</div>
+                                    <div className="team_cards">
+                                        {this.getCardsFromCategory('Paladins')}
+                                    </div>
+                                </div>
                             </div>
-                }
+
+                            :   <div className="team_progress">
+                                    { this.state.loading ?
+                                        <div>
+                                            <CircularProgress color="inherit"/>
+                                            <h3>Loading...</h3>
+                                        </div>
+                                        : null
+                                    }
+                                </div>
+                    }
+                </div>
             </div>
         );
     }

@@ -12,73 +12,92 @@ class Players extends Component {
 
     render() {
         return (
-            <Reveal
-                fraction={0.7}
-                onReveal={() => {
-                    this.setState({
-                        show: true
-                    })
-                }}
-            >
                 <div className="home_players" style={{
-                    background:`#353535 url(${stripes})`
+                    background:`linear-gradient(315deg, rgba(17, 24, 33, 0.81) 0%, rgba(64, 77, 93, 0.81) 50.52%, rgba(17, 24, 33, 0.81) 100%), url(${stripes})`,
+                    backgroundSize: '5px'
                 }}>
-                    <div className="container">
-                        <div className="home_players_wrapper">
-                            <div className="home_card_wrapper">
-                                <PlayerCards
-                                    show={this.state.show}
-                                />
-                            </div>
-                            <div className="home_text_wrapper">
-                                <div>
-                                    <Tag bg="#EC9424" size="100px" color="#2B2B2B"
+                    <Reveal
+                        fraction={0.5}
+                        onReveal={() => {
+                            this.setState({
+                                show: true
+                            })
+                        }}
+                    >
+                        <div className="container">
+                            <div className="home_players_wrapper">
+                                <div className="home_card_wrapper">
+                                    <PlayerCards
+                                        show={this.state.show}
+                                    />
+                                </div>
+                                <div className="home_text_wrapper">
+                                    <div>
+                                        <Tag size="90px" color="#FFFFFF"
+                                            add={{
+                                                display:'inline-block',
+                                                fontFamily: 'Fugaz One',
+                                                textShadow: '5px 5px 10px rgba(0, 0, 0, 0.5)',
+                                                lineHeight: '120px',
+                                                userSelect: 'none',
+                                                padding: '0'
+                                            }}
+                                        >
+                                            MEET
+                                        </Tag>
+                                    </div>
+                                    <div>
+                                        <Tag size="90px" color="#FFFFFF"
+                                            add={{
+                                                display:'inline-block',
+                                                fontFamily: 'Fugaz One',
+                                                textShadow: '5px 5px 10px rgba(0, 0, 0, 0.5)',
+                                                lineHeight: '120px',
+                                                userSelect: 'none',
+                                                padding: '0'
+                                            }}
+                                        >
+                                            THE
+                                        </Tag>
+                                    </div>
+                                    <div>
+                                        <Tag size="90px" color="#FFFFFF"
+                                            add={{
+                                                display:'inline-block',
+                                                fontFamily: 'Fugaz One',
+                                                textShadow: '5px 5px 10px rgba(0, 0, 0, 0.5)',
+                                                lineHeight: '120px',
+                                                userSelect: 'none',
+                                                padding: '0'
+                                            }}
+                                        >
+                                            PLAYERS
+                                        </Tag>
+                                    </div>
+                                    <div>
+                                    <Tag bg="#FE5000" size="14px" color="#ffffff"
+                                        link={true}
+                                        linkTo="/team"
                                         add={{
                                             display:'inline-block',
-                                            marginBottom: '20px'
+                                            margin: '20px 0',
+                                            padding: '15px 40px',
+                                            boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
+                                            textTransform: 'uppercase',
+                                            fontFamily: 'Montserrat',
+                                            fontWeight: '500',
+                                            textAlign: 'center'
                                         }}
                                     >
-                                        MEET
+                                        Show Teams
                                     </Tag>
-                                </div>
-                                <div>
-                                    <Tag bg="#EC9424" size="100px" color="#2B2B2B"
-                                        add={{
-                                            display:'inline-block',
-                                            marginBottom: '20px'
-                                        }}
-                                    >
-                                        THE
-                                    </Tag>
-                                </div>
-                                <div>
-                                    <Tag bg="#EC9424" size="100px" color="#2B2B2B"
-                                        add={{
-                                            display:'inline-block',
-                                            marginBottom: '20px'
-                                        }}
-                                    >
-                                        PLAYERS
-                                    </Tag>
-                                </div>
-                                <div>
-                                <Tag  size="27px" color="#ffffff"
-                                    link={true}
-                                    linkTo="/team"
-                                    add={{
-                                        display:'inline-block',
-                                        margin: '30px 0',
-                                        border:'2px solid #ffffff'
-                                    }}
-                                >
-                                    Show Teams
-                                </Tag>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </Reveal>
                 </div>
-            </Reveal>
+            
         );
     }
 }

@@ -1,18 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import virtusLogo from '../../resources/images/logos/virtus_logo.png';
+import virtusLogo from '../../resources/images/logos/home_icon_2.png';
 
 export const Logo = (props) => {
     const template = 
-        <div
-            className="img_cover"
-            style={{
+    <div
+        className={props.classTag}
+        style={{
                 width: props.width,
                 height: props.height,
-                background: `url(${virtusLogo}) no-repeat`
+                background: `url(${virtusLogo}) center center no-repeat`,
+                ...props.add
             }}
-        ></div>
+    ></div>
 
     if (props.link) {
         return (

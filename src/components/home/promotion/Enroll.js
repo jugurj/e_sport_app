@@ -104,7 +104,7 @@ class Enroll extends Component {
                 <div className="enroll_wrapper">
                     <form onSubmit={(event) => this.submitForm(event)}>
                         <div className="enroll_title">
-                            Enter your email
+                            Join Contest
                         </div>
                         <div className="enroll_input">
                             <FormField

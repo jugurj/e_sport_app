@@ -7,25 +7,28 @@ class StripesBg extends Component {
     state = {
         stripes: [
             {
-                background: '#EC9424',
-                left: 320,
+                background: '#FE5000',
+                left: 450,
                 rotate: -25,
-                top: -150,
-                delay: 0
+                top: -30,
+                delay: 0,
+                zIndex: 5
             },
             {
-                background: '#2B2B2B',
-                left: 360,
-                rotate: 25,
-                top: -400,
-                delay: 500
-            },
-            {
-                background: '#EC9424',
-                left: 605,
+                background: '#111821',
+                left: 660,
                 rotate: 25,
                 top: -500,
-                delay: 250
+                delay: 500,
+                zIndex: 0
+            },
+            {
+                background: '#FE5000',
+                left: 870,
+                rotate: 25,
+                top: -600,
+                delay: 250,
+                zIndex: 0
             }
         ]
     }
@@ -43,7 +46,8 @@ class StripesBg extends Component {
                             opacity: 0,
                             left: 0,
                             rotate: 0,
-                            top: 0
+                            top: 0,
+                            zIndex: 0
                         }}
 
                         enter={{
@@ -52,14 +56,16 @@ class StripesBg extends Component {
                             left: [stripe.left],
                             rotate: [stripe.rotate],
                             top: [stripe.top],
-                            timing: { delay: stripe.delay, duration: 200, ease: easePolyOut }
+                            timing: { delay: stripe.delay, duration: 200, ease: easePolyOut },
+                            zIndex: [stripe.zIndex]
                         }}
                     >
-                        {({ opacity, left, rotate, top, background }) => {
+                        {({ opacity, left, rotate, top, background, zIndex }) => {
                             return (
                                 <div className="stripe" style={{
                                     background,
                                     opacity,
+                                    zIndex,
                                     transform: `rotate(${rotate}deg) translate(${left}px, ${top}px)`
                                 }}></div>
                             )

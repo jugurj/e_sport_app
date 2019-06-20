@@ -14,6 +14,11 @@ class MatchesList extends Component {
         }
     }
 
+    dateFormat = (matchDate) => {
+        let date = new Date(matchDate).toDateString().split(' ');
+        return `${parseInt(date[2], 10)} ${date[1]} ${date[3]}`
+    }
+
     showMatches = () => {
         return (
             this.state.matchesList ?
@@ -55,29 +60,30 @@ class MatchesList extends Component {
                                         transform: `translate(${x}px)`
                                     }}    
                                 >
-                                    <div className="block_wrapper">
-                                        <div className="block">
-                                            <div
-                                                className="icon"
-                                                style={{background:`url(/images/team_icons/${data.localThmb}.png) center no-repeat`}}></div>
-                                            <div className="team">{data.local}</div>
-                                            <div className="result">{data.resultLocal}</div>
+                                    <div className="match_container">
+                                        <div className="team_wrapper">
+                                            <div className="block">
+                                                <div
+                                                    className="icon"
+                                                    style={{background:`url(/images/team_icons/${data.localThmb}.png) center no-repeat`}}></div>
+                                                <div className="team">{data.local}</div>
+                                                <div className="result">{data.resultLocal}</div>
+                                            </div>
+                                            <div className="block">
+                                                <div
+                                                    className="icon"
+                                                    style={{background:`url(/images/team_icons/${data.awayThmb}.png) center no-repeat`}}></div>
+                                                <div className="team">{data.away}</div>
+                                                <div className="result">{data.resultAway}</div>
+                                            </div>
                                         </div>
-                                        <div className="block">
-                                            <div
-                                                className="icon"
-                                                style={{background:`url(/images/team_icons/${data.awayThmb}.png) center no-repeat`}}></div>
-                                            <div className="team">{data.away}</div>
-                                            <div className="result">{data.resultAway}</div>
+
+                                        <div className="block_wrapper">
+                                            <div className="stadium">{data.stadium}</div>
+                                            <div className="referee">{data.referee}</div>
+                                            <div className="date">{this.dateFormat(data.date)}</div>
                                         </div>
                                     </div>
-
-                                    <div className="block_wrapper">
-                                        <div><strong>Date: </strong>{data.date}</div>
-                                        <div><strong>Stadium: </strong>{data.stadium}</div>
-                                        <div><strong>Referee: </strong>{data.referee}</div>
-                                    </div>
-
                                 </div>
                             ))}
                         </div>

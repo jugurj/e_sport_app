@@ -8,9 +8,9 @@ export const Tag = (props) => {
                 background: props.bg,
                 fontSize: props.size,
                 color: props.color,
-                padding: '5px 10px',
+                padding: '15px 15px',
                 display: 'inline-block',
-                fontFamily: 'Fugaz One',
+                fontFamily: 'Montserrat',
                 border: props.border,
                 ...props.add
             }}

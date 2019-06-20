@@ -29,9 +29,7 @@ class Blocks extends Component {
                 matches.map((match) => (
                     <Slide left key={match.id}>
                         <div className="item">
-                            <div className="wrapper">
-                                <MatchesBlock match={match} />
-                            </div>
+                            <MatchesBlock match={match} />
                         </div>
                     </Slide>
                 ))

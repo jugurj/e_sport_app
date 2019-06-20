@@ -1,41 +1,10 @@
 import React, { Component } from 'react';
-import { easePolyOut, easeLinear } from 'd3-ease';
+import { easePolyOut } from 'd3-ease';
 import Animate from 'react-move/Animate';
 
-import thumbnail_image from '../../../resources/images/thumb_image_bright.png';
+import thumbnail_image from '../../../resources/images/thumbnail_image.png';
 
 class Title extends Component {
-
-    animateNumber = () => {
-        return(
-            <Animate
-                show={true}
-
-                start={{
-                    opacity: 0,
-                    rotate: 0
-                }}
-
-                enter={{
-                    opacity: [1],
-                    rotate: [360],
-                    timing: {duration: 300, delay: 0, ease: easeLinear }
-                }}
-            >
-                {({opacity, rotate}) => {
-                    return (
-                        <div className="thumbnail_title_number"
-                            style={{
-                                opacity,
-                                transform: `translate(240px, 140px) rotate(-25deg)`
-                            }}>
-                            4
-                        </div>
-                    )
-                }}
-            </Animate>
-        )
-    }
 
     animateFirstTitle = () => {
         return(
@@ -45,13 +14,13 @@ class Title extends Component {
                 start={{
                     opacity: 0,
                     x: -300,
-                    y: 450
+                    y: 380
                 }}
 
                 enter={{
                     opacity: [1],
-                    x: [225],
-                    y: [450],
+                    x: [530],
+                    y: [380],
                     timing: {duration: 1000, delay: 1000, ease: easePolyOut }
                 }}
             >
@@ -62,7 +31,7 @@ class Title extends Component {
                                 opacity,
                                 transform: `translate(${x}px, ${y}px)`
                             }}>
-                            League
+                            League<span className="number">4</span>
                         </div>
                     )
                 }}
@@ -77,25 +46,26 @@ class Title extends Component {
 
                 start={{
                     opacity: 0,
-                    x: 500,
-                    y: 580
+                    left: 2000,
+                    top: 580
                 }}
 
                 enter={{
                     opacity: [1],
-                    x: [270],
-                    y: [580],
+                    left: [600],
+                    top: [580],
                     timing: {duration: 1000, delay: 1000, ease: easePolyOut }
                 }}
             >
-                {({opacity, x, y}) => {
+                {({opacity, left, top}) => {
                     return (
                         <div className="thumbnail_second_title"
                             style={{
                                 opacity,
-                                transform: `translate(${x}px, ${y}px)`
+                                left,
+                                top
                             }}>
-                            Championships
+                            Championship
                         </div>
                     )
                 }}
@@ -123,7 +93,7 @@ class Title extends Component {
                             style={{
                                 opacity,
                                 background: `url(${thumbnail_image})`,
-                                transform: `translate(445px, 150px)`
+                                // transform: `translate(235px, 80px)`
                             }}>
                         </div>
                     )
@@ -137,9 +107,9 @@ class Title extends Component {
         return (
             <div className="thumbnail_title">
                 {this.animateImage()}
-                {this.animateNumber()}
                 {this.animateFirstTitle()}
                 {this.animateSecondTitle()}
+                <span className="background_overlay_title">VIRTUS PRO ©</span>
             </div>
         );
     }

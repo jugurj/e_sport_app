@@ -12,7 +12,7 @@ class Home extends Component {
 
     render() {
         return (
-            <div className="bg_gray">
+            <div>
                 <Thumbnail/>
                 <Matches/>
                 <Players/>
