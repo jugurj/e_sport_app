@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import stripes from '../../../resources/images/stripes.png';
 import { Tag } from '../../utils/tag';
 import Reveal from 'react-reveal/Reveal';
 import PlayerCards from './PlayerCards';
@@ -13,8 +12,7 @@ class Players extends Component {
     render() {
         return (
                 <div className="home_players" style={{
-                    background:`linear-gradient(315deg, rgba(17, 24, 33, 0.81) 0%, rgba(64, 77, 93, 0.81) 50.52%, rgba(17, 24, 33, 0.81) 100%), url(${stripes})`,
-                    backgroundSize: '5px'
+                    background:`linear-gradient(315deg, rgba(17, 24, 33, 0.81) 0%, rgba(64, 77, 93, 0.81) 50.52%, rgba(17, 24, 33, 0.81) 100%)`
                 }}>
                     <Reveal
                         fraction={0.5}

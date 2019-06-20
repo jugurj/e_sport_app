@@ -77,10 +77,7 @@ class Team extends Component {
     render() {
         return (
             <div className="team_container"
-                style={{
-                    background:`linear-gradient(to bottom, rgba(17, 24, 33, 0.81) 0%, rgba(64, 77, 93, 0.81) 50.52%, rgba(17, 24, 33, 0.81) 100%) 0% 0% / 5px, url(${stripes})`,
-                    backgroundSize: '5px'
-                }}
+                style={{ background: `#364150` }}
             >
                 <div className="container">
                     {   !this.state.loading ?
