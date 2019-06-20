@@ -516,12 +516,12 @@ footer .footer_disc a:hover {
     }
 
     .home_players .home_text_wrapper {
-        width: 90%;
+        width: 80%;
         padding: 0 20px;
     }
 
     .home_players .home_text_wrapper > div > div {
-        font-size: 70px !important;
+        font-size: 60px !important;
         line-height: 90px !important;
     }
 }
@@ -659,6 +659,13 @@ footer .footer_disc a:hover {
         width: 220px;
         height: 220px;
         left: -160px;
+    }
+
+}
+@media only screen and (max-width: 400px) {
+    .promotion_wrapper .enroll_input {
+        width: auto !important;
+        padding: 30px 20px !important;
     }
 }
 
